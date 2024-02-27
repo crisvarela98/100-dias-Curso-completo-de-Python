@@ -1,3 +1,7 @@
+# Día 4: Simulador de Historias de Aventuras
+# Este código crea una historia épica con el usuario como protagonista, usando colores para resaltar ciertos elementos.
+
+# Definición de la clase 'color' que contiene códigos de escape ANSI para colores de texto
 class color:
   PURPLE = '\033[95m'
   CYAN = '\033[96m'
@@ -10,26 +14,25 @@ class color:
   UNDERLINE = '\033[4m'
   END = '\033[0m'
 
-
-
+# Muestra un mensaje de bienvenida al simulador de historias de aventuras
 print("Bienvenido a tu Simulador de Historias de Aventuras.")
 print ()
 print("Te haré un montón de preguntas y luego crearé una historia épica contigo como estrella.")
 print()
 
-
-name = input("Cual es tu nombre? ")
+# Solicita información al usuario para crear la historia
+name = input("¿Cuál es tu nombre? ")
 print()
-enemyName = input("Cual es el nombre de tu enemigo? ")
+enemyName = input("¿Cuál es el nombre de tu enemigo? ")
 print()
 superPower = input("¿Cuál es tu superpoder? ")
 print()
-live = input("Donde vivis?")
+live = input("¿Dónde vives?")
 print()
-food = input("Cual es tu comida favorita?")
+food = input("¿Cuál es tu comida favorita?")
 print()
 
-
+# Imprime la historia épica con el usuario como protagonista y utilizando colores
 print("Hola", color.BOLD + color.PURPLE + name + color.END,
   "Tu habilidad para", color.BOLD + color.BLUE + superPower + color.END,
   "se asegurará de que nunca tengas que mirar a", color.BOLD + color.RED + enemyName + color.END,
