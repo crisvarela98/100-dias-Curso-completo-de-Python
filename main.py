@@ -22,19 +22,32 @@ def abrir_archivo_dia(numero_dia):
     ruta_archivo = os.path.join('dias', nombre_archivo)
 
     try:
-        # Intenta abrir el archivo en modo lectura
-        with open(ruta_archivo, 'r') as archivo:
-            # Lee el contenido del archivo
-            contenido = archivo.read()
-            # Imprime el contenido del archivo enmarcado
-            imprimir_mensaje_enmarcado(f"Contenido del archivo {nombre_archivo}")
-            print(contenido)
-            # Pregunta al usuario si desea ejecutar el archivo
-            imprimir_mensaje_enmarcado("¿Desea ejecutar este archivo? (s/n):")
-            ejecutar = input().lower()
-            # Si el usuario elige 's', ejecuta el archivo usando subprocess.run
-            if ejecutar == 's':
-                subprocess.run(['python', ruta_archivo])
+        # Pregunta al usuario si desea ejecutar el archivo
+        imprimir_mensaje_enmarcado("¿Desea ejecutar este archivo? (s/n):")
+        ejecutar = input().lower()
+        if ejecutar == 's':
+            subprocess.run(['python', ruta_archivo])
+        else:
+            # Pregunta al usuario si desea abrir el archivo
+            imprimir_mensaje_enmarcado(f"¿Desea abrir el archivo {nombre_archivo}? (s/n):")
+            abrir = input().lower()
+            if abrir == 's':
+                # Intenta abrir el archivo en modo lectura
+                with open(ruta_archivo, 'r') as archivo:
+                    # Lee el contenido del archivo
+                    contenido = archivo.read()
+                    # Imprime el contenido del archivo enmarcado
+                    imprimir_mensaje_enmarcado(f"Contenido del archivo {nombre_archivo}")
+                    print(contenido)
+
+                    # Pregunta al usuario si desea modificar el archivo
+                    imprimir_mensaje_enmarcado("¿Desea modificar este archivo? (s/n):")
+                    modificar = input().lower()
+                    if modificar == 's':
+                        # Abre el archivo en modo escritura y permite al usuario modificarlo
+                        with open(ruta_archivo, 'w') as archivo_modificado:
+                            nuevo_contenido = input("Ingrese el nuevo contenido:\n")
+                            archivo_modificado.write(nuevo_contenido)
     except FileNotFoundError:
         # Maneja el caso en que el archivo no se encuentra
         print(f"El archivo {nombre_archivo} no se encontró.")
