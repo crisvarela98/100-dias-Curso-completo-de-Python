@@ -2,7 +2,7 @@ import os
 import subprocess
 
 # Función para imprimir un mensaje enmarcado con un color específico
-def imprimir_mensaje_enmarcado(mensaje, color='\033[92m'):
+def imprimir_mensaje_enmarcado(mensaje, color='\033[96m'):
     ancho = len(mensaje) + 4
     print(color + '¬' * ancho)
     print(f'  {mensaje}')
@@ -11,7 +11,7 @@ def imprimir_mensaje_enmarcado(mensaje, color='\033[92m'):
 # Función para imprimir un mensaje enmarcado con el color verde
 def imprimir_mensaje_continuar(mensaje):
     # Utiliza la función imprimir_mensaje_enmarcado con el color verde 
-    imprimir_mensaje_enmarcado(mensaje, color='\033[92m')
+    imprimir_mensaje_enmarcado(mensaje, color='\033[96m')
     # Espera a que el usuario presione Enter para continuar
     input()
 
@@ -57,7 +57,7 @@ if __name__ == "__main__":
         # Limpia la consola para una mejor presentación
         os.system('cls' if os.name == 'nt' else 'clear')  
         # Imprime un mensaje enmarcado para que el usuario ingrese el número del día
-        imprimir_mensaje_enmarcado("Ingrese el número del día del archivo que desea abrir (21-30)", '\033[92m')
+        imprimir_mensaje_enmarcado("Ingrese el número del día del archivo que desea abrir (21-30)", '\033[96m')
         # Lee la entrada del usuario que indica el número del día
         numero_dia = input()
         # Llama a la función abrir_archivo_dia para abrir el archivo correspondiente al día indicado
